@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet"
+    android:paddingStart="@dimen/space_4"
+    android:paddingTop="@dimen/space_2"
+    android:paddingEnd="@dimen/space_4"
+    android:paddingBottom="@dimen/space_3">
+
+    <!-- 拖拽指示条 -->
+    <View
+        android:id="@+id/dragHandle"
+        android:layout_width="36dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="@dimen/space_1"
+        android:layout_marginBottom="@dimen/space_1"
+        android:background="@drawable/bg_drag_handle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_1"
+        android:text="@string/history_edit_move_to_folder"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_md"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dragHandle" />
+
+    <!-- 文件夹列表（可滚动） -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/folderListScroll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_2"
+        android:maxHeight="180dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText">
+
+        <LinearLayout
+            android:id="@+id/folderListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- 新建文件夹输入 -->
+    <EditText
+        android:id="@+id/newFolderInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_2"
+        android:background="@drawable/bg_dialog_input"
+        android:hint="@string/history_edit_or_new_folder"
+        android:paddingStart="@dimen/space_3"
+        android:paddingTop="@dimen/space_2"
+        android:paddingEnd="@dimen/space_3"
+        android:paddingBottom="@dimen/space_2"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"
+        android:textSize="@dimen/text_sm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/folderListScroll" />
+
+    <!-- 记住此选择（仅首次自动弹出时显示） -->
+    <CheckBox
+        android:id="@+id/rememberFolderCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_1"
+        android:buttonTint="@color/brand_primary"
+        android:text="@string/scan_folder_remember"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/text_sm"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/newFolderInput" />
+
+    <LinearLayout
+        android:id="@+id/buttonBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_2"
+        android:gravity="end"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rememberFolderCheck">
+
+        <TextView
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingStart="@dimen/space_4"
+            android:paddingTop="@dimen/space_1"
+            android:paddingEnd="@dimen/space_4"
+            android:paddingBottom="@dimen/space_1"
+            android:text="@string/dialog_edit_record_cancel"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_md" />
+
+        <TextView
+            android:id="@+id/confirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingStart="@dimen/space_4"
+            android:paddingTop="@dimen/space_1"
+            android:paddingEnd="@dimen/space_4"
+            android:paddingBottom="@dimen/space_1"
+            android:text="@string/dialog_edit_record_confirm"
+            android:textColor="@color/brand_success"
+            android:textSize="@dimen/text_md"
+            android:textStyle="bold" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

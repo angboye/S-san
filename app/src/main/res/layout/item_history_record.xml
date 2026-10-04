@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/surface_card"
+    app:cardCornerRadius="@dimen/radius_lg"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/surface_border"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/space_4"
+        android:paddingTop="@dimen/space_4"
+        android:paddingEnd="@dimen/space_4"
+        android:paddingBottom="@dimen/space_4">
+
+        <!-- 多选指示器 -->
+        <FrameLayout
+            android:id="@+id/selectIndicator"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/thumbnailImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/thumbnailImage">
+
+            <ImageView
+                android:id="@+id/checkIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_history_check"
+                android:contentDescription="@string/history_select_all"
+                android:padding="@dimen/space_1"
+                android:src="@drawable/ic_check"
+                app:tint="@color/text_inverse" />
+        </FrameLayout>
+
+        <!-- 扫码原图缩略图 -->
+        <ImageView
+            android:id="@+id/thumbnailImage"
+            android:layout_width="@dimen/size_avatar"
+            android:layout_height="@dimen/size_avatar"
+            android:background="@drawable/bg_history_thumbnail"
+            android:clipToOutline="true"
+            android:contentDescription="@string/history_action_view_image"
+            android:padding="@dimen/space_3"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_setting_barcode"
+            app:layout_constraintStart_toEndOf="@id/selectIndicator"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_hint" />
+
+        <!-- 扫码内容 -->
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_4"
+            android:layout_marginEnd="@dimen/space_2"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_lg"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/arrowIcon"
+            app:layout_constraintStart_toEndOf="@id/thumbnailImage"
+            app:layout_constraintTop_toTopOf="@id/thumbnailImage"
+            tools:text="HTTPS://Y2WM.CN/99.1000.1/AC10317120001AM53YS05" />
+
+        <!-- 类型标签 + 时间 同一行 -->
+        <TextView
+            android:id="@+id/typeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_4"
+            android:layout_marginTop="@dimen/space_2"
+            android:background="@drawable/bg_history_type_tag"
+            android:paddingStart="@dimen/space_2"
+            android:paddingTop="@dimen/space_1"
+            android:paddingEnd="@dimen/space_2"
+            android:paddingBottom="@dimen/space_1"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_sm"
+            app:layout_constraintStart_toEndOf="@id/thumbnailImage"
+            app:layout_constraintTop_toBottomOf="@id/resultText"
+            tools:text="二维码" />
+
+        <TextView
+            android:id="@+id/timeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_2"
+            android:layout_marginEnd="@dimen/space_2"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_sm"
+            app:layout_constraintBaseline_toBaselineOf="@id/typeText"
+            app:layout_constraintEnd_toStartOf="@id/arrowIcon"
+            app:layout_constraintStart_toEndOf="@id/typeText"
+            tools:text="2026-06-16 21:29:19" />
+
+        <ImageView
+            android:id="@+id/arrowIcon"
+            android:layout_width="@dimen/space_5"
+            android:layout_height="@dimen/space_5"
+            android:contentDescription="@string/history_detail_title"
+            android:src="@drawable/ic_home_chevron"
+            app:layout_constraintBottom_toBottomOf="@id/thumbnailImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/thumbnailImage" />
+
+        <!-- 备注 -->
+        <TextView
+            android:id="@+id/noteText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/history_note_none"
+            android:textColor="@color/text_tertiary"
+            android:textSize="@dimen/text_sm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/thumbnailImage" />
+
+        <View
+            android:id="@+id/actionDivider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/space_3"
+            android:background="@color/surface_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/noteText" />
+
+        <LinearLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2"
+            android:gravity="end"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionDivider">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/exportButton"
+                style="@style/HistoryCardAction"
+                android:layout_marginEnd="@dimen/space_2"
+                android:text="@string/history_action_export" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/deleteButton"
+                style="@style/HistoryCardAction"
+                android:text="@string/history_action_delete"
+                android:textColor="@color/brand_danger" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:fillViewport="true"
+    tools:context=".feature.history.presentation.HistoryDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/page_back"
+                android:padding="@dimen/space_1"
+                android:src="@drawable/ic_back"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_4"
+                android:layout_weight="1"
+                android:text="@string/history_detail_title"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_xl"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/surface_border"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_4">
+
+                <TextView
+                    android:id="@+id/typeBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_stat_card"
+                    android:paddingStart="@dimen/space_3"
+                    android:paddingTop="@dimen/space_2"
+                    android:paddingEnd="@dimen/space_3"
+                    android:paddingBottom="@dimen/space_2"
+                    android:text="@string/scan_result_badge"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_sm"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/resultImageView"
+                        android:layout_width="@dimen/size_avatar"
+                        android:layout_height="@dimen/size_avatar"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/bg_stat_card"
+                        android:clickable="true"
+                        android:contentDescription="@string/history_click_view_image"
+                        android:focusable="true"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_menu_gallery" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/space_4"
+                        android:layout_marginEnd="@dimen/space_4"
+                        android:background="@color/surface_border" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/scan_result_content_label"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/text_sm" />
+
+                        <TextView
+                            android:id="@+id/resultContentValue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_2"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_lg"
+                            android:textStyle="bold"
+                            tools:text="HTTPS://Y2WM.CN/99.1000.1/AC10317120029FZL7ZFJBV9T83YFTO76G" />
+
+                        <TextView
+                            android:id="@+id/timeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_2"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/text_sm"
+                            tools:text="时间：2026-05-30 14:20" />
+
+                        <TextView
+                            android:id="@+id/imageStatusText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_2"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/text_sm"
+                            tools:text="点击图片可查看大图" />
+
+                        <TextView
+                            android:id="@+id/noteText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_2"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/text_sm" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_6"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/viewImageButton"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="@dimen/space_2"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/white"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingStart="@dimen/space_2"
+                android:paddingEnd="@dimen/space_2"
+                android:text="@string/history_click_view_image"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_md"
+                app:cornerRadius="26dp"
+                app:iconPadding="0dp"
+                app:strokeColor="@color/surface_border"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/copyButton"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="@dimen/space_2"
+                android:layout_marginEnd="@dimen/space_2"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/white"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingStart="@dimen/space_2"
+                android:paddingEnd="@dimen/space_2"
+                android:text="@string/scan_copy_label"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_md"
+                app:cornerRadius="26dp"
+                app:iconPadding="0dp"
+                app:strokeColor="@color/surface_border"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/shareButton"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="@dimen/space_2"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/white"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingStart="@dimen/space_2"
+                android:paddingEnd="@dimen/space_2"
+                android:text="@string/scan_share_label"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_md"
+                app:cornerRadius="26dp"
+                app:iconPadding="0dp"
+                app:strokeColor="@color/surface_border"
+                app:strokeWidth="1dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

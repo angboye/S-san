@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/folderCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/surface_card"
+    app:cardCornerRadius="@dimen/radius_md"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/surface_divider"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/space_4"
+        android:paddingTop="@dimen/space_4"
+        android:paddingEnd="@dimen/space_4"
+        android:paddingBottom="@dimen/space_2">
+
+        <ImageView
+            android:id="@+id/folderIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_history_folder_circle"
+            android:padding="@dimen/space_2"
+            android:src="@drawable/ic_folder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_inverse" />
+
+        <TextView
+            android:id="@+id/folderTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_3"
+            android:layout_marginEnd="@dimen/space_2"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_lg"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/folderArrow"
+            app:layout_constraintStart_toEndOf="@id/folderIcon"
+            app:layout_constraintTop_toTopOf="@id/folderIcon"
+            tools:text="文件夹：隔壁" />
+
+        <TextView
+            android:id="@+id/folderTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_3"
+            android:layout_marginTop="@dimen/space_1"
+            android:layout_marginEnd="@dimen/space_2"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_sm"
+            app:layout_constraintEnd_toStartOf="@id/folderArrow"
+            app:layout_constraintStart_toEndOf="@id/folderIcon"
+            app:layout_constraintTop_toBottomOf="@id/folderTitle"
+            tools:text="2026-06-17 19:57:57" />
+
+        <ImageView
+            android:id="@+id/folderArrow"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_home_chevron"
+            app:layout_constraintBottom_toBottomOf="@id/folderIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/folderIcon" />
+
+        <View
+            android:id="@+id/folderDivider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/space_3"
+            android:background="@color/surface_muted"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/folderTitle"
+            app:layout_constraintTop_toBottomOf="@id/folderIcon" />
+
+        <LinearLayout
+            android:id="@+id/folderActionBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2"
+            android:gravity="end"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/folderDivider">
+
+            <TextView
+                android:id="@+id/folderRename"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="@dimen/space_3"
+                android:background="@drawable/bg_history_outline_btn"
+                android:gravity="center"
+                android:minWidth="72dp"
+                android:paddingStart="@dimen/space_4"
+                android:paddingEnd="@dimen/space_4"
+                android:text="@string/history_edit_rename"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_md" />
+
+            <TextView
+                android:id="@+id/folderExport"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="@dimen/space_3"
+                android:background="@drawable/bg_history_outline_btn"
+                android:gravity="center"
+                android:minWidth="72dp"
+                android:paddingStart="@dimen/space_4"
+                android:paddingEnd="@dimen/space_4"
+                android:text="@string/history_edit_export"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_md" />
+
+            <TextView
+                android:id="@+id/folderDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_history_outline_btn"
+                android:gravity="center"
+                android:minWidth="72dp"
+                android:paddingStart="@dimen/space_4"
+                android:paddingEnd="@dimen/space_4"
+                android:text="@string/history_edit_delete"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_md" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

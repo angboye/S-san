@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    tools:context=".feature.history.presentation.HistoryActivity">
+
+    <!-- 顶部：标题 + 记录数 + 搜索（对照 design/history.png） -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/screen_bg"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/space_5"
+        android:paddingTop="@dimen/space_4"
+        android:paddingEnd="@dimen/space_5"
+        android:paddingBottom="@dimen/space_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- 标题行 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="@dimen/space_2"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/page_back"
+                android:padding="@dimen/space_2"
+                android:src="@drawable/ic_back"
+                app:tint="@color/text_primary" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/history_page_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_xl"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/historyTotalCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_1"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="@dimen/text_sm"
+                    tools:text="共 128 条记录" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/searchScanButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/history_search_scan"
+                android:padding="@dimen/space_2"
+                android:src="@drawable/ic_scan_box"
+                app:tint="@color/text_primary" />
+
+            <ImageButton
+                android:id="@+id/moreButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/history_more"
+                android:padding="@dimen/space_2"
+                android:src="@drawable/ic_more"
+                app:tint="@color/text_primary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="@dimen/space_4"
+            android:background="@drawable/bg_history_search"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/space_4"
+            android:paddingEnd="@dimen/space_3">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:contentDescription="@string/history_search_hint"
+                android:src="@drawable/ic_search"
+                app:tint="@color/text_hint" />
+
+            <EditText
+                android:id="@+id/searchInput"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_2"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:hint="@string/history_search_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint"
+                android:textSize="@dimen/text_md" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 顶部操作栏（编辑模式） -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editModeBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/surface_card"
+        android:elevation="4dp"
+        android:paddingTop="@dimen/space_2"
+        android:paddingBottom="@dimen/space_2"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/editCloseBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/page_back"
+            android:padding="@dimen/space_2"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/editSelectedCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_1"
+            android:layout_marginEnd="@dimen/space_2"
+            android:gravity="center"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_lg"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/editSelectAll"
+            app:layout_constraintStart_toEndOf="@id/editCloseBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="已选择 0 项" />
+
+        <CheckBox
+            android:id="@+id/editSelectAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/brand_primary"
+            android:paddingStart="@dimen/space_2"
+            android:paddingEnd="@dimen/space_4"
+            android:text="@string/history_select_all"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_md"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Tab 标签 -->
+    <LinearLayout
+        android:id="@+id/tabContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_2"
+        android:background="@color/screen_bg"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <TextView
+            android:id="@+id/tabScan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="@dimen/space_4"
+            android:paddingBottom="@dimen/space_4"
+            android:text="@string/history_tab_scan"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/text_lg"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tabConvert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="@dimen/space_4"
+            android:paddingBottom="@dimen/space_4"
+            android:text="@string/history_tab_convert"
+            android:textColor="@color/text_tertiary"
+            android:textSize="@dimen/text_lg" />
+    </LinearLayout>
+
+    <!-- 选中Tab的指示器 -->
+    <View
+        android:id="@+id/tabIndicator"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/brand_primary"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabContainer" />
+
+    <!-- 列表滚动区域 -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/screen_bg"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/editBottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabIndicator">
+
+        <LinearLayout
+            android:id="@+id/historyListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- 空状态 -->
+    <TextView
+        android:id="@+id/emptyView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/space_8"
+        android:text="@string/history_empty_desc"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/text_md"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/scrollView" />
+
+    <!-- 底部操作栏（编辑模式：移动/导出/对比/删除） -->
+    <LinearLayout
+        android:id="@+id/editBottomBar"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@color/surface_card"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/actionMove"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/size_icon"
+                android:layout_height="@dimen/size_icon"
+                android:contentDescription="@string/history_edit_move"
+                android:src="@drawable/ic_action_move" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_1"
+                android:text="@string/history_edit_move"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_sm" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/actionExport"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/size_icon"
+                android:layout_height="@dimen/size_icon"
+                android:contentDescription="@string/history_edit_export"
+                android:src="@drawable/ic_action_export" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_1"
+                android:text="@string/history_edit_export"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_sm" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/actionCompare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/size_icon"
+                android:layout_height="@dimen/size_icon"
+                android:contentDescription="@string/history_edit_compare"
+                android:src="@drawable/ic_action_compare" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_1"
+                android:text="@string/history_edit_compare"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_sm" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/actionDelete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/size_icon"
+                android:layout_height="@dimen/size_icon"
+                android:contentDescription="@string/history_edit_delete"
+                android:src="@drawable/ic_action_delete" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_1"
+                android:text="@string/history_edit_delete"
+                android:textColor="@color/brand_danger"
+                android:textSize="@dimen/text_sm" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

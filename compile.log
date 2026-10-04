@@ -1,0 +1,198 @@
+﻿To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.13/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :app
+WARNING: The option setting 'android.aapt2FromMavenOverride=E:\S-scan\.android-sdk\build-tools\35.0.0\aapt2.exe' is experimental.
+
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:dataBindingMergeDependencyArtifactsDebug UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:dataBindingGenBaseClassesDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:kaptGenerateStubsDebugKotlin UP-TO-DATE
+> Task :app:kaptDebugKotlin UP-TO-DATE
+
+> Task :app:compileDebugKotlin FAILED
+.\gradlew.bat : e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivi
+ty.kt:56:24 Unresolved reference 'R'.
+At line:15 char:4240
++ ... can; $out = .\gradlew.bat :app:compileDebugKotlin --no-daemon 2>&1 |  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (e: file:///E:/S... reference 'R'.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:59:37 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:60:34 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:61:42 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:62:42 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:63:32 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:64:35 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:69:28 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:95:28 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:96:28 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:97:28 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:98:28 Unre
+solved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:203:44 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:210:33 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:226:38 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:230:30 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:247:34 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:260:46 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:280:30 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:288:21 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:308:30 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:315:30 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:323:41 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:345:37 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:355:33 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:360:33 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:382:41 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:386:41 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:395:33 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:406:38 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:409:30 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:451:30 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:473:33 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:477:33 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:478:35 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:479:42 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:484:45 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:491:42 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:502:38 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:505:30 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:538:30 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:545:30 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:553:41 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:559:45 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:578:33 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:586:33 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:587:35 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:588:42 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:592:45 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:599:42 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:607:37 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:630:46 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:630:77 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:647:61 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:648:60 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:649:60 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:650:61 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:651:61 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:652:61 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:655:40 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:678:62 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:679:60 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:680:60 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:681:60 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:682:61 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:683:61 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:687:39 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:705:32 Unr
+esolved reference 'R'.
+e: file:///E:/S-scan/app/src/main/java/com/example/sscan/feature/history/presentation/HistoryEditActivity.kt:706:32 Unr
+esolved reference 'R'.
+
+[Incubating] Problems report is available at: file:///E:/S-scan/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCo
+mpilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 11s
+18 actionable tasks: 1 executed, 17 up-to-date
+

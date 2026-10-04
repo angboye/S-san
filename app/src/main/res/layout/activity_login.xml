@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".feature.auth.presentation.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/screen_bg"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/space_6"
+        android:paddingTop="48dp"
+        android:paddingEnd="@dimen/space_6"
+        android:paddingBottom="@dimen/space_6">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/page_back"
+            android:padding="@dimen/space_2"
+            android:src="@drawable/ic_back"
+            app:tint="@color/text_primary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_welcome_title"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_xxl"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_2"
+                android:text="@string/login_welcome_subtitle"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_md" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_phone_label"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_sm" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/space_2"
+                android:background="@drawable/bg_login_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/space_4"
+                android:paddingEnd="@dimen/space_3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_country_code"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_lg"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="@dimen/space_6"
+                    android:layout_marginStart="@dimen/space_3"
+                    android:background="@color/surface_input_border" />
+
+                <EditText
+                    android:id="@+id/phoneInput"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/space_3"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/login_phone_hint"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_placeholder"
+                    android:textSize="@dimen/text_lg" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_code_label"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_sm" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/space_2"
+                android:background="@drawable/bg_login_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/space_4"
+                android:paddingEnd="@dimen/space_3">
+
+                <EditText
+                    android:id="@+id/codeInput"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/login_code_hint"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_placeholder"
+                    android:textSize="@dimen/text_lg" />
+
+                <TextView
+                    android:id="@+id/sendCodeButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:paddingStart="@dimen/space_3"
+                    android:paddingTop="@dimen/space_2"
+                    android:paddingEnd="@dimen/space_3"
+                    android:paddingBottom="@dimen/space_2"
+                    android:text="@string/login_send_code"
+                    android:textColor="@color/brand_primary"
+                    android:textSize="@dimen/text_md"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="36dp"
+            android:backgroundTint="@color/brand_primary"
+            android:text="@string/login_confirm"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_lg"
+            android:textStyle="bold"
+            app:cornerRadius="28dp" />
+        <!-- 56dp 高按钮，半高圆角保持原值。 -->
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:gravity="center"
+            android:textColor="@color/brand_success"
+            android:textSize="@dimen/text_sm"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mockHintText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="@string/login_mock_hint"
+            android:textColor="@color/text_placeholder"
+            android:textSize="@dimen/text_sm" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,28 @@
+name: iosApp
+options:
+  bundleIdPrefix: com.example.sscan
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    PRODUCT_BUNDLE_IDENTIFIER: com.example.sscan.iosApp
+    SWIFT_VERSION: "5.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "15.0"
+    TARGETED_DEVICE_FAMILY: "1,2"
+
+targets:
+  iosApp:
+    type: application
+    platform: iOS
+    sources:
+      - path: iosApp
+    settings:
+      base:
+        INFOPLIST_FILE: iosApp/Info.plist
+        ENABLE_BITCODE: NO
+        SWIFT_OBJC_BRIDGING_HEADER: ""
+    dependencies:
+      - framework: Shared.framework
+        embed: true

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 字号：统计数字、标题、正文和标签 -->
+    <dimen name="text_xxl">28sp</dimen>
+    <dimen name="text_xl">22sp</dimen>
+    <dimen name="text_lg">16sp</dimen>
+    <dimen name="text_md">14sp</dimen>
+    <dimen name="text_sm">12sp</dimen>
+
+    <!-- 间距：页面留白和组件间距 -->
+    <dimen name="space_1">4dp</dimen>
+    <dimen name="space_2">8dp</dimen>
+    <dimen name="space_3">12dp</dimen>
+    <dimen name="space_4">16dp</dimen>
+    <dimen name="space_5">20dp</dimen>
+    <dimen name="space_6">24dp</dimen>
+    <dimen name="space_8">32dp</dimen>
+
+    <!-- 圆角：卡片、输入框和胶囊 -->
+    <dimen name="radius_lg">12dp</dimen>
+    <dimen name="radius_md">8dp</dimen>
+    <dimen name="radius_pill">999dp</dimen>
+
+    <!-- 尺寸：图标、触控区域和头像 -->
+    <dimen name="size_icon">24dp</dimen>
+    <dimen name="size_icon_lg">32dp</dimen>
+    <dimen name="size_touch">48dp</dimen>
+    <dimen name="size_avatar">56dp</dimen>
+</resources>

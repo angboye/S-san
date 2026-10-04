@@ -1,0 +1,385 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.SScan" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- 品牌色：决定 SwitchCompat / 选中态等控件着色 -->
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@color/text_inverse</item>
+        <item name="colorControlActivated">@color/brand_primary</item>
+        <!-- 沉浸式状态栏 -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowLightStatusBar">@bool/window_light_status_bar</item>
+        <!-- 沉浸式导航栏 -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">
+            @bool/window_light_navigation_bar
+        </item>
+        <!-- 窗口背景 -->
+        <item name="android:windowBackground">@color/screen_bg</item>
+        <!-- 全屏布局 -->
+        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="28">shortEdges</item>
+        <!-- 启用边缘到边缘 -->
+        <item name="android:windowEnableSplitTouch">false</item>
+    </style>
+
+    <!-- ════════ 设置页组件规范（对应 design/tokens.png） ════════ -->
+
+    <!-- 分组标题：卡片上方的小灰字 -->
+    <style name="SettingsSectionHeader">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/space_4</item>
+        <item name="android:paddingTop">@dimen/space_4</item>
+        <item name="android:paddingBottom">@dimen/space_1</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textSize">@dimen/text_sm</item>
+    </style>
+
+    <!-- 分组卡片容器 -->
+    <style name="SettingsCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/space_4</item>
+        <item name="android:background">@drawable/bg_mine_card</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- 普通行（带开关，整行不可点） -->
+    <style name="SettingsRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:minHeight">64dp</item>
+        <item name="android:paddingStart">@dimen/space_4</item>
+        <item name="android:paddingTop">@dimen/space_3</item>
+        <item name="android:paddingEnd">@dimen/space_4</item>
+        <item name="android:paddingBottom">@dimen/space_3</item>
+    </style>
+
+    <!-- 可点击行（跳转/对话框） -->
+    <style name="SettingsRowClickable" parent="SettingsRow">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- 行首图标 -->
+    <style name="SettingsRowIcon">
+        <item name="android:layout_width">@dimen/size_icon</item>
+        <item name="android:layout_height">@dimen/size_icon</item>
+        <item name="android:layout_marginEnd">@dimen/space_4</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:tint">@color/text_tertiary</item>
+        <item name="tint">@color/text_tertiary</item>
+    </style>
+
+    <!-- 标题+副标题的竖排容器 -->
+    <style name="SettingsRowText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="SettingsRowTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/text_lg</item>
+    </style>
+
+    <style name="SettingsRowSummary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_1</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/text_sm</item>
+    </style>
+
+    <!-- 行尾数值 -->
+    <style name="SettingsRowValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/space_2</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/text_md</item>
+    </style>
+
+    <style name="SettingsRowSwitch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/space_2</item>
+        <item name="thumbTint">@color/switch_thumb_tint</item>
+        <item name="trackTint">@color/switch_track_tint</item>
+    </style>
+
+    <style name="SettingsRowChevron">
+        <item name="android:layout_width">18dp</item>
+        <item name="android:layout_height">18dp</item>
+        <item name="android:layout_marginStart">@dimen/space_2</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:src">@drawable/ic_home_chevron</item>
+    </style>
+
+    <!-- 行间分隔线，从图标右侧起始 -->
+    <style name="SettingsDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginStart">@dimen/size_avatar</item>
+        <item name="android:background">@color/surface_divider</item>
+    </style>
+
+    <!-- ════════ 首页组件规范（对应 design/home.png） ════════ -->
+
+
+
+
+
+
+
+
+
+
+    <style name="HomeNavTab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">@dimen/space_2</item>
+        <item name="android:paddingBottom">@dimen/space_2</item>
+    </style>
+
+    <style name="HomeNavIcon">
+        <item name="android:layout_width">@dimen/size_icon</item>
+        <item name="android:layout_height">@dimen/size_icon</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="HomeNavLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_1</item>
+        <item name="android:textColor">@color/text_hint</item>
+        <item name="android:textSize">@dimen/text_sm</item>
+    </style>
+
+    <style name="HistoryCardAction" parent="Widget.Material3.Button.TextButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">34dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:paddingStart">@dimen/space_4</item>
+        <item name="android:paddingEnd">@dimen/space_4</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/text_sm</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="strokeColor">@color/surface_border</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- ════════ 首页组件规范（1:1 对照 design/home.png） ════════ -->
+
+    <!-- 统计不画卡片，靠留白分隔；少画框是「大气」的关键 -->
+    <style name="HomeStatTile">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">@dimen/space_1</item>
+        <item name="android:paddingEnd">@dimen/space_2</item>
+        <item name="android:paddingBottom">@dimen/space_1</item>
+    </style>
+
+    <!-- 图标与标签同一行 -->
+    <style name="HomeStatHead">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="HomeStatIcon">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="HomeStatLabel">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">@dimen/space_2</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/text_sm</item>
+    </style>
+
+    <!-- 大数字与单位同一行、基线对齐 -->
+    <style name="HomeStatNumberRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_2</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="HomeStatValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">0</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/text_xxl</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeStatUnit">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/space_1</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:paddingBottom">@dimen/space_1</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textSize">@dimen/text_sm</item>
+    </style>
+
+    <!-- 模式卡：横向（图标 + 文字 + 箭头） -->
+    <style name="HomeModeCard">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_home_feature_card_new</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">@dimen/space_3</item>
+        <item name="android:paddingTop">@dimen/space_6</item>
+        <item name="android:paddingEnd">@dimen/space_2</item>
+        <item name="android:paddingBottom">@dimen/space_6</item>
+    </style>
+
+    <style name="HomeModeIcon">
+        <item name="android:layout_width">@dimen/size_icon</item>
+        <item name="android:layout_height">@dimen/size_icon</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="HomeModeText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">@dimen/space_2</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="HomeModeTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/text_md</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeModeChevron">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:src">@drawable/ic_home_chevron</item>
+    </style>
+
+    <!-- ════════ 扫码页组件规范（1:1 对照 design/scan.png） ════════ -->
+
+    <style name="ScanModePill">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">@dimen/space_2</item>
+        <item name="android:paddingTop">@dimen/space_2</item>
+        <item name="android:paddingEnd">@dimen/space_2</item>
+        <item name="android:paddingBottom">@dimen/space_2</item>
+    </style>
+
+    <style name="ScanModePillLabel">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/text_inverse</item>
+        <item name="android:textSize">@dimen/text_md</item>
+    </style>
+
+    <style name="ScanModePillSwitch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleX">0.9</item>
+        <item name="android:scaleY">0.9</item>
+        <item name="thumbTint">@color/text_inverse</item>
+        <item name="trackTint">@color/switch_track_scan</item>
+    </style>
+
+    <style name="ScanCtrlColumn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="ScanCtrlCircle">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/bg_scan_ctrl_circle</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="ScanCtrlIcon">
+        <item name="android:layout_width">@dimen/size_icon</item>
+        <item name="android:layout_height">@dimen/size_icon</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="tint">@color/text_inverse</item>
+    </style>
+
+    <!-- resetFocusButton 仍是 MaterialButton（代码按该类型绑定），做成纯图标圆钮 -->
+    <style name="ScanCtrlButton" parent="Widget.Material3.Button.IconButton">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="backgroundTint">@color/surface_overlay</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+        <item name="iconSize">@dimen/size_icon</item>
+        <item name="iconTint">@color/text_inverse</item>
+    </style>
+
+    <style name="ScanCtrlLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_2</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/white_90</item>
+        <item name="android:textSize">@dimen/text_sm</item>
+    </style>
+</resources>

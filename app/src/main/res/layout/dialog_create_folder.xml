@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/space_6"
+    android:layout_marginEnd="@dimen/space_6"
+    android:background="@drawable/bg_dialog_card"
+    android:padding="@dimen/space_5">
+
+    <!-- 标题：新建文件夹 -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_create_folder_title"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_lg"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 分割线 -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/space_4"
+        android:background="@color/surface_divider_soft"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText" />
+
+    <!-- 输入框：请输入文件夹名字 -->
+    <EditText
+        android:id="@+id/folderNameInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_3"
+        android:background="@drawable/bg_dialog_input"
+        android:hint="@string/dialog_create_folder_hint"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingStart="@dimen/space_3"
+        android:paddingTop="@dimen/space_2"
+        android:paddingEnd="@dimen/space_3"
+        android:paddingBottom="@dimen/space_2"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"
+        android:textSize="@dimen/text_md"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
+
+    <!-- 底部按钮区域 -->
+    <LinearLayout
+        android:id="@+id/buttonBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_5"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/folderNameInput">
+
+        <!-- 取消按钮 -->
+        <TextView
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingStart="@dimen/space_4"
+            android:paddingTop="@dimen/space_2"
+            android:paddingEnd="@dimen/space_4"
+            android:paddingBottom="@dimen/space_2"
+            android:text="@string/dialog_create_folder_cancel"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_md" />
+
+        <!-- 完成按钮 -->
+        <TextView
+            android:id="@+id/confirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingStart="@dimen/space_4"
+            android:paddingTop="@dimen/space_2"
+            android:paddingEnd="@dimen/space_4"
+            android:paddingBottom="@dimen/space_2"
+            android:text="@string/dialog_create_folder_confirm"
+            android:textColor="@color/brand_primary"
+            android:textSize="@dimen/text_md"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
