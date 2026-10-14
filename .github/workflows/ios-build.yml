@@ -38,38 +38,53 @@ jobs:
         run: |
           mkdir -p iosApp/iosApp/Frameworks
           cp -R shared/build/bin/iosSimulatorArm64/releaseFramework/Shared.framework iosApp/iosApp/Frameworks/
+          echo "=== framework contents ==="
+          ls -la iosApp/iosApp/Frameworks/Shared.framework
 
       - name: Install XcodeGen
         run: brew install xcodegen
 
       - name: Generate Xcode Project
         working-directory: iosApp
-        run: xcodegen generate
+        run: |
+          xcodegen generate
+          echo "=== generated project ==="
+          ls -la
 
       - name: Build iOS App (Simulator)
         working-directory: iosApp
         run: |
+          set -o pipefail
           xcodebuild \
             -project iosApp.xcodeproj \
             -scheme iosApp \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination 'generic/platform=iOS Simulator' \
             -configuration Debug \
             build \
             CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO
+            CODE_SIGNING_REQUIRED=NO 2>&1 | tee build.log
+          echo "BUILD_EXIT=$?" >> $GITHUB_ENV
+
+      - name: Report build errors
+        if: failure()
+        run: |
+          echo "### xcodebuild 错误日志（最后 80 行）" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -n 80 iosApp/build.log >> $GITHUB_STEP_SUMMARY || true
+          echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Upload iOS Framework
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: ios-framework
           path: shared/build/bin/iosSimulatorArm64/releaseFramework/Shared.framework
           retention-days: 30
 
-      - name: Upload iOS Build Log
+      - name: Upload build log
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ios-build-log
-          path: |
-            shared/build/bin/
+          path: iosApp/build.log
           retention-days: 7
