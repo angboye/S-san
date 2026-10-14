@@ -18,7 +18,7 @@ struct ContentView: View {
             Text("平台: \(Platform().name)")
                 .font(.body)
 
-            Text("HTTP 检测: \(ScanUtils().isHttpUrl(content: "https://example.com"))")
+            Text("HTTP 检测: \(ScanUtils.shared.isHttpUrl(content: "https://example.com"))")
                 .font(.body)
 
             Spacer()
